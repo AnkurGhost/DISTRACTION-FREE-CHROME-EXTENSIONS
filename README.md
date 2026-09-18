@@ -27,8 +27,3 @@ A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, 
 - The extension stores settings and usage locally in extension storage.
 - Convert Case uses the Chromium contextMenus API and active-tab scripting when the user invokes the menu.
 - YouTube’s DOM changes over time; the built-in cleanup uses CSS selectors and a MutationObserver and may need selector updates if YouTube changes its markup.
-
-
-Session restart behavior: after a session expires, the unlock phrase does not reuse the previous duration. The phrase only unlocks the duration selector; the user must choose 1, 5, 10, 20, or 30 minutes before the new session starts.
-
-Multi-tab session behavior: a session is shared across tabs. When one locked tab completes the phrase and starts a new session, other locked tabs for the same Think Site host are reopened automatically and use the same new session timer.
