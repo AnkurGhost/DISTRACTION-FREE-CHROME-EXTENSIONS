@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Think Before Open — Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div id="saveToast" class="save-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <main class="wrap">
+    <header class="header">
+      <div>
+        <div class="eyebrow">BRAVE EXTENSION</div>
+        <h1>Think Before Open</h1>
+        <p>Pause before selected sites, block distracting sites, and understand how you spend time online.</p>
+      </div>
+      <div id="timerBadge" class="timer-badge">30 sec pause</div>
+    </header>
+
+    <section class="panel settings-panel">
+      <div>
+        <h2>Thinking time</h2>
+        <p class="muted">Choose how long the pause lasts before the Open button appears.</p>
+      </div>
+      <div class="setting-row">
+        <label for="waitSeconds">Default wait</label>
+        <div class="number-wrap"><input id="waitSeconds" type="number" min="1" max="600" step="1" value="30"><span>seconds</span></div>
+        <button id="saveWait">Save time</button>
+      </div>
+      <div id="waitStatus" class="status" aria-live="polite"></div>
+    </section>
+
+
+    <section class="panel">
+      <h2>Add a website</h2>
+      <p class="muted">Use a domain such as <code>youtube.com</code> or paste a full URL. Subdomains are included.</p>
+      <div class="add-row">
+        <input id="siteInput" type="text" placeholder="example.com" autocomplete="off" spellcheck="false">
+        <button id="addThink">Add to think list</button>
+        <button id="addBlock" class="danger">Block website</button>
+      </div>
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="section-heading"><div><h2>Think list</h2><p class="muted">Pause before the site can open.</p></div><span id="thinkCount" class="count">0</span></div>
+        <div id="thinkList" class="list"></div>
+      </div>
+      <div class="panel">
+        <div class="section-heading"><div><h2>Block list</h2><p class="muted">The site is stopped completely.</p></div><span id="blockedCount" class="count">0</span></div>
+        <div id="blockedList" class="list"></div>
+      </div>
+    </section>
+
+    <section class="panel tools-panel">
+      <div class="section-heading">
+        <div>
+          <h2>Web tools</h2>
+          <p class="muted">Built-in tools inspired by the three browser extensions you referenced. Use the controls here instead of installing them separately.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div>
+            <h3>YouTube distraction remover</h3>
+            <p class="muted">Hide algorithmic distractions such as the home feed, related sidebar, Shorts, comments, end-screen suggestions, and Explore/Trending. Autoplay can also be disabled.</p>
+            <a href="https://chromewebstore.google.com/detail/unhook-remove-youtube-rec/khncfooichmfjbepaaaebmommgaepoid?hl=en" target="_blank" rel="noopener" class="reference-link">Reference: Unhook</a>
+          </div>
+          <label class="switch-row tool-switch"><span><strong>Enabled</strong><small>YouTube cleanup is active.</small></span><input id="youtubeDistractionEnabled" type="checkbox"><span class="switch"></span></label>
+        </div>
+        <div class="tool-options">
+          <label class="check-option"><input id="youtubeHideHomeFeed" type="checkbox"><span>Hide home feed</span></label>
+          <label class="check-option"><input id="youtubeHideRelated" type="checkbox"><span>Hide related/sidebar</span></label>
+          <label class="check-option"><input id="youtubeHideShorts" type="checkbox"><span>Hide Shorts</span></label>
+          <label class="check-option"><input id="youtubeHideComments" type="checkbox"><span>Hide comments</span></label>
+          <label class="check-option"><input id="youtubeHideEndscreen" type="checkbox"><span>Hide end-screen suggestions</span></label>
+          <label class="check-option"><input id="youtubeHideTrending" type="checkbox"><span>Hide Explore/Trending</span></label>
+          <label class="check-option"><input id="youtubeDisableAutoplay" type="checkbox"><span>Disable autoplay</span></label>
+        </div>
+        <div class="tool-actions"><button id="saveYoutubeDistraction">Save YouTube cleanup</button></div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div>
+            <h3>Return YouTube Dislike</h3>
+            <p class="muted">Show an estimated dislike count beside the YouTube video action buttons using the Return YouTube Dislike public API.</p>
+            <a href="https://chromewebstore.google.com/detail/return-youtube-dislike/gebbhagfogifgggkldgodflihgfeippi?hl=en" target="_blank" rel="noopener" class="reference-link">Reference: Return YouTube Dislike</a>
+          </div>
+          <label class="switch-row tool-switch"><span><strong>Enabled</strong><small>Dislike counts appear on YouTube video pages.</small></span><input id="youtubeDislikeEnabled" type="checkbox"><span class="switch"></span></label>
+        </div>
+        <div id="dislikeStatus" class="status" aria-live="polite"></div>
+        <div class="tool-actions"><button id="saveYoutubeDislike">Save dislike setting</button></div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div>
+            <h3>Save Images as Type</h3>
+            <p class="muted">Save images from webpages in a chosen image format, using the browser extension you referenced.</p>
+            <a href="https://chromewebstore.google.com/detail/save-images-as-type/ppfngkdknicokcdembnnlpahnpanlcko?hl=en" target="_blank" rel="noopener" class="reference-link">Open in Chrome Web Store</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div>
+            <h3>Convert Case</h3>
+            <p class="muted">Select text on a webpage, right-click, then use <strong>Convert Case</strong> to change the selection.</p>
+            <a href="https://chromewebstore.google.com/detail/convert-case/coeojadhefmcmdnojhgihdhkbnnppghc?hl=en" target="_blank" rel="noopener" class="reference-link">Reference: Convert Case</a>
+          </div>
+          <label class="switch-row tool-switch"><span><strong>Enabled</strong><small>Adds a right-click Convert Case menu.</small></span><input id="convertCaseEnabled" type="checkbox"><span class="switch"></span></label>
+        </div>
+        <div class="case-preview"><span>UPPERCASE</span><span>lowercase</span><span>Title Case</span><span>Sentence case</span><span>tOGGLE cASE</span></div>
+        <div class="tool-actions"><button id="saveConvertCase">Save Convert Case</button></div>
+      </div>
+    </section>
+
+    <section class="panel analytics">
+      <div class="section-heading analytics-head"><div><h2>Usage analytics</h2><p class="muted">Active time on normal web pages. Time is stored locally in this browser.</p></div><button id="refreshUsage" class="ghost">Refresh</button></div>
+      <div class="chart-grid">
+        <div class="chart-card"><div class="chart-title">Daily · last 7 days</div><div id="dailyChart" class="chart bars"></div></div>
+        <div class="chart-card"><div class="chart-title">Weekly · last 8 weeks</div><div id="weeklyChart" class="chart bars"></div></div>
+        <div class="chart-card wide"><div class="chart-title">Monthly · last 6 months</div><div id="monthlyChart" class="chart bars"></div></div>
+      </div>
+      <div class="usage-summary">
+        <div class="usage-summary-head"><div><div class="chart-title">Today · websites and active time</div><p id="todayTotal" class="muted small">0 min</p></div><span class="muted small">Updated automatically while browsing</span></div>
+        <div id="todaySites" class="usage-list"></div>
+      </div>
+    </section>
+
+    <section class="panel privacy"><h2>Privacy</h2><p class="muted">Website lists and usage statistics are stored with the browser's extension storage. Return-dislike requests go to the Return YouTube Dislike API only when that tool is enabled on a YouTube video page.</p></section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

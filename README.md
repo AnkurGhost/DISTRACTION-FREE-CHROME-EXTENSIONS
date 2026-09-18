@@ -1,1 +1,39 @@
-# DISTRACTION-FREE-CHROME-EXTENSIONS
+# Think Before Open — Brave Extension
+
+A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, blocking sites, tracking usage, and adding optional built-in web tools.
+
+## Features
+
+- Think list with a configurable 1–600 second wait.
+- Block list.
+- One-time open bypass so clicking **Open website** does not immediately restart the thinking timer.
+- Daily, weekly, and monthly local usage charts.
+- Built-in YouTube distraction remover controls inspired by Unhook-style cleanup.
+- Built-in Return YouTube Dislike display using the public Return YouTube Dislike API.
+- Built-in **Convert Case** context-menu tool for selected text.
+- URL exclusion feature removed.
+
+## Install in Brave
+
+1. Extract this ZIP.
+2. Open `brave://extensions`.
+3. Turn on **Developer mode**.
+4. Click **Load unpacked**.
+5. Select the inner `brave_think_before_open` folder.
+6. Click the extension icon or open Options to use the dashboard.
+
+## Notes
+
+- The extension stores settings and usage locally in extension storage.
+- Return-dislike data is requested only for YouTube video pages when that option is enabled. The API is operated by the Return YouTube Dislike project.
+- Convert Case uses the Chromium contextMenus API and active-tab scripting when the user invokes the menu.
+- YouTube’s DOM changes over time; the built-in cleanup uses CSS selectors and a MutationObserver and may need selector updates if YouTube changes its markup.
+
+
+## Session Time (v1.5.3)
+After the thinking timer finishes, click **Open website** to choose a session duration: 1, 5, 10, 20, or 30 minutes. The selected timer starts when you confirm, then the website opens. When the session expires, configured Think Sites are locked until the exact unlock phrase is entered; a successful unlock starts a fresh session with the same duration.
+
+
+Session restart behavior: after a session expires, the unlock phrase does not reuse the previous duration. The phrase only unlocks the duration selector; the user must choose 1, 5, 10, 20, or 30 minutes before the new session starts.
+
+Multi-tab session behavior: a session is shared across tabs. When one locked tab completes the phrase and starts a new session, other locked tabs for the same Think Site host are reopened automatically and use the same new session timer.

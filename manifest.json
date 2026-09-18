@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Think Before Open",
+  "version": "1.5.3",
+  "description": "Pause before selected websites, block distracting sites, and reduce web distractions.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "alarms",
+    "contextMenus",
+    "scripting",
+    "activeTab",
+    "downloads"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Think Before Open"
+  },
+  "options_page": "dashboard.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "youtube-content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

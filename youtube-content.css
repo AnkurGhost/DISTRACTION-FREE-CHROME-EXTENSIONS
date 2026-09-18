@@ -1,0 +1,23 @@
+/* Return YouTube Dislike: keep the estimated count readable in both YouTube themes. */
+#tbo-return-dislike {
+  color: #0f0f0f !important;
+  background: #f2f2f2 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-text-fill-color: #0f0f0f !important;
+}
+
+html[dark] #tbo-return-dislike,
+html[dark-mode] #tbo-return-dislike,
+body[dark] #tbo-return-dislike {
+  color: #f1f1f1 !important;
+  background: #272727 !important;
+  -webkit-text-fill-color: #f1f1f1 !important;
+}
+
+html[dark] #tbo-return-dislike span,
+html[dark-mode] #tbo-return-dislike span,
+body[dark] #tbo-return-dislike span {
+  color: #f1f1f1 !important;
+  -webkit-text-fill-color: #f1f1f1 !important;
+}

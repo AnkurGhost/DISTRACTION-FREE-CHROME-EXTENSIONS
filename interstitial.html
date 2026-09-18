@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Think Before Open</title>
+  <link rel="stylesheet" href="interstitial.css">
+</head>
+<body>
+  <main class="card">
+    <div class="brand">THINK BEFORE OPEN</div>
+    <div id="icon" class="icon">⏳</div>
+    <h1 id="title">Take 30 seconds.</h1>
+    <p id="message">You added this site to your thinking list.</p>
+    <div class="site" id="site">Loading…</div>
+
+    <div id="countdownBox" class="countdown-box">
+      <div id="countdown" class="countdown">30</div>
+      <div class="sub">seconds remaining</div>
+    </div>
+
+    <div id="actions" class="actions hidden">
+      <button id="openBtn" class="primary">Open website</button>
+      <button id="closeBtn" class="secondary">Close tab</button>
+    </div>
+
+    <div id="sessionSetup" class="session-setup hidden">
+      <p class="session-setup-title">Choose your session time before opening</p>
+      <p class="session-setup-text">The session starts only after you choose a duration and confirm.</p>
+      <label class="session-select-label" for="sessionMinutes">Session time</label>
+      <select id="sessionMinutes" class="session-select" aria-label="Session time">
+        <option value="" selected disabled>Choose a session time</option>
+        <option value="1">1 minute</option>
+        <option value="5">5 minutes</option>
+        <option value="10">10 minutes</option>
+        <option value="20">20 minutes</option>
+        <option value="30">30 minutes</option>
+      </select>
+      <div class="actions setup-actions">
+        <button id="startSessionOpenBtn" class="primary">Start session &amp; open</button>
+        <button id="cancelSessionSetupBtn" class="secondary">Back</button>
+      </div>
+      <p id="sessionSetupError" class="error hidden"></p>
+    </div>
+
+    <div id="blockedActions" class="actions hidden">
+      <button id="backBtn" class="secondary">Close tab</button>
+      <button id="dashboardBtn" class="link-button">Manage blocklist</button>
+    </div>
+
+    <div id="sessionLockPanel" class="session-lock hidden">
+      <p class="session-lock-label">Type this exact phrase, then choose the time for your new session:</p>
+      <div id="unlockPhrase" class="unlock-phrase">I understand that my session has ended and I am intentionally starting a new timed session.</div>
+      <input id="unlockInput" class="unlock-input" type="text" autocomplete="off" spellcheck="false" aria-label="Unlock phrase" placeholder="Type the full phrase here">
+      <button id="unlockBtn" class="primary">Unlock and choose session time</button>
+      <button id="lockCloseBtn" class="secondary">Close tab</button>
+    </div>
+
+    <p id="error" class="error hidden"></p>
+    <p class="hint" id="hint">The timer finishes before the open button becomes available.</p>
+
+  </main>
+  <script src="interstitial.js"></script>
+</body>
+</html>
