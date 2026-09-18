@@ -24,6 +24,7 @@ A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, 
 
 ## Notes
 
+- ⚠️AI is heavily utilized to create this extension⚠️
 - The extension stores settings and usage locally in extension storage.
 - Return-dislike data is requested only for YouTube video pages when that option is enabled. The API is operated by the Return YouTube Dislike project.
 - Convert Case uses the Chromium contextMenus API and active-tab scripting when the user invokes the menu.
