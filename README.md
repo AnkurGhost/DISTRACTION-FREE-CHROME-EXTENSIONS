@@ -1,6 +1,6 @@
 # DISTRACTION-FREE-CHROME-EXTENSIONS
 
-A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, blocking sites, tracking usage, and adding optional built-in web tools.
+A Manifest V3 Chromium extension for slowing down impulsive site opening, blocking sites, tracking usage, and adding optional built-in web tools.
 
 ## Features
 
@@ -12,7 +12,7 @@ A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, 
 - Built-in **Convert Case** context-menu tool for selected text.
 - URL exclusion feature removed.
 
-## Install in Brave
+## Install in any chromium browser
 
 1. Extract this ZIP.
 2. Open `brave://extensions`.
@@ -20,6 +20,10 @@ A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, 
 4. Click **Load unpacked**.
 5. Select the inner `brave_think_before_open` folder.
 6. Click the extension icon or open Options to use the dashboard.
+
+OR
+[Turn on **Developer mode**]
+JUST DRAG AND DROP THE CRX FILE
 
 ## Notes
 
