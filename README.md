@@ -1,4 +1,4 @@
-# Think Before Open — Brave Extension
+# DISTRACTION-FREE-CHROME-EXTENSIONS
 
 A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, blocking sites, tracking usage, and adding optional built-in web tools.
 
