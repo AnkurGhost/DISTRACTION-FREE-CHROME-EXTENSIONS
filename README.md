@@ -29,10 +29,6 @@ A Manifest V3 Brave/Chromium extension for slowing down impulsive site opening, 
 - YouTube’s DOM changes over time; the built-in cleanup uses CSS selectors and a MutationObserver and may need selector updates if YouTube changes its markup.
 
 
-## Session Time (v1.0.0)
-After the thinking timer finishes, click **Open website** to choose a session duration: 1, 5, 10, 20, or 30 minutes. The selected timer starts when you confirm, then the website opens. When the session expires, configured Think Sites are locked until the exact unlock phrase is entered; a successful unlock starts a fresh session with the same duration.
-
-
 Session restart behavior: after a session expires, the unlock phrase does not reuse the previous duration. The phrase only unlocks the duration selector; the user must choose 1, 5, 10, 20, or 30 minutes before the new session starts.
 
 Multi-tab session behavior: a session is shared across tabs. When one locked tab completes the phrase and starts a new session, other locked tabs for the same Think Site host are reopened automatically and use the same new session timer.
